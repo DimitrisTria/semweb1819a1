@@ -1,7 +1,7 @@
 import csv
 
 
-with open("Η_ΕΞΑΜΗΝΟ.csv", "r", newline="", encoding="UTF-8") as ifp, \
+with open("course_schedule.csv", "r", newline="", encoding="UTF-8") as ifp, \
 open("Trinities.csv", "w", newline="", encoding="UTF-8") as ofp:
 	reader = csv.reader(ifp)
 	writer = csv.writer(ofp)
