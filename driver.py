@@ -23,7 +23,8 @@ open("prefix_Trinities.csv", "w", newline="", encoding="UTF-8") as ofp:
         writer.writerow(["b:"+row[0], row[1], label+row[2]])
 
 
-with open('prefix_Trinities.csv', 'r', newline = '') as ifp, open('URIs_Trinities.csv', 'w', newline = '') as ofp:
+with open('prefix_Trinities.csv', 'r', newline = '') as ifp, \
+open('URIs_Trinities.csv', 'w', newline = '') as ofp:
 	reader = csv.reader(ifp)
 	writer = csv.writer(ofp)
 	convertions = {" ": "%20"}
@@ -35,9 +36,8 @@ with open('prefix_Trinities.csv', 'r', newline = '') as ifp, open('URIs_Trinitie
 		writer.writerow([s,p,o])
 
 
-with open('URIs_Trinities.csv', 'r', encoding="UTF-8", newline='') as ifp, open('new_URIs_Trinities.csv', 'w', encoding="UTF-8", newline = '') as ofp:
+with open('URIs_Trinities.csv', 'r', encoding="UTF-8", newline='') as ifp:
 	reader = csv.reader(ifp)
-	writer = csv.writer(ofp)
 	for s,p,o in reader:
 		new_s = s.replace("b", "_")
 		new_p = "<" + p + ">"
@@ -55,3 +55,6 @@ with open('URIs_Trinities.csv', 'r', encoding="UTF-8", newline='') as ifp, open(
 		else:
 			new_o = '"' + o + '"'
 		print("{} {} {} .".format(new_s, new_p, new_o))
+
+
+# run command: python3 driver.py > RDF.nt
